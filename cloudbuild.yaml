@@ -1,0 +1,39 @@
+steps:
+  # Step 1: Install Terraform
+  - name: hashicorp/terraform:1.6.6
+    id: terraform-init
+    entrypoint: sh
+    args:
+      - -c
+      - |
+        terraform init \
+          -input=false
+
+  # Step 2: Terraform Plan
+  - name: hashicorp/terraform:1.6.6
+    id: terraform-plan
+    entrypoint: sh
+    args:
+      - -c
+      - |
+        terraform plan \
+          -input=false \
+          -out=tfplan
+
+  # Step 3: Terraform Apply
+  - name: hashicorp/terraform:1.6.6
+    id: terraform-apply
+    entrypoint: sh
+    args:
+      - -c
+      - |
+        terraform apply \
+          -input=false \
+          -auto-approve \
+          tfplan
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_8   # Faster execution
+
+timeout: 1200s  # 20 minutes
