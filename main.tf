@@ -1,3 +1,19 @@
+terraform {
+  required_version = ">= 1.6.0"
+
+  backend "gcs" {
+    bucket = "wf-terraform-state-wayfair-test-378605"  # replace with your bucket
+    prefix = "vm-dev/state"                          # folder-style prefix
+  }
+
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.0"
+    }
+  }
+}
+
 provider "google" {
   project = "wayfair-test-378605"
   region  = "us-east1"
