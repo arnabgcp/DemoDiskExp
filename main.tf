@@ -58,4 +58,6 @@ resource "google_compute_instance" "private_vm" {
     email  = "default"
     scopes = ["https://www.googleapis.com/auth/cloud-platform"]
   }
+
+allow_stopping_for_update = true
 }
