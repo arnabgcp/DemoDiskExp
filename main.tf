@@ -25,7 +25,7 @@ resource "google_compute_disk" "extra_disk" {
   name  = "extra-disk"
   type  = "pd-standard"
   zone  = "us-east1-d"
-  size  = 160   # GB
+  size  = 170   # GB
 }
 
 # VM without public IP
