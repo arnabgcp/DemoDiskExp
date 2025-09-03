@@ -25,7 +25,7 @@ resource "google_compute_disk" "extra_disk" {
   name  = "extra-disk"
   type  = "pd-standard"
   zone  = "us-east1-d"
-  size  = 130   # GB
+  size  = 140   # GB
 }
 
 # VM without public IP
@@ -59,5 +59,5 @@ resource "google_compute_instance" "private_vm" {
     scopes = ["https://www.googleapis.com/auth/cloud-platform"]
   }
 
-allow_stopping_for_update = true
+ 
 }
