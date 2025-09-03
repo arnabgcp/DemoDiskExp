@@ -59,5 +59,5 @@ resource "google_compute_instance" "private_vm" {
     scopes = ["https://www.googleapis.com/auth/cloud-platform"]
   }
 
- 
+ allow_stopping_for_update = true
 }
